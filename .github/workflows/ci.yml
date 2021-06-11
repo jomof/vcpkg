@@ -19,6 +19,7 @@ jobs:
         include:
           - os: windows-latest
             bootstrap: ./bootstrap-vcpkg.bat
+            vcpkg: ./vcpkg
           - os: ubuntu-latest
             bootstrap: ./bootstrap-vcpkg.sh
           - os: macos-latest
@@ -30,5 +31,9 @@ jobs:
       
       - name: Bootstrap
         run: ${{ matrix.bootstrap }}
+        
+      - name: Install
+        run: ./vcpkg install jsoncpp:arm-android  jsoncpp:arm64-android  jsoncpp:x64-android  jsoncpp:x86-android
+
 
 
