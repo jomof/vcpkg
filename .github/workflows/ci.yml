@@ -14,13 +14,18 @@ jobs:
   build:
     strategy:
       matrix:
-        boost_version: [1.70.0,1.73.0]
         ndk_version: [20.1.5948944]
         os: [windows-latest,ubuntu-latest,macos-latest]
     runs-on: ${{ matrix.os }}
 
     steps:
       - uses: actions/checkout@v2
+      
       - name: Bootstrap
         run: ./bootstrap-vcpkg.sh
+        if: ${{ matrix.os != "windows-latest" }}
+        
+      - name: Bootstrap (Windows)
+        run: ./bootstrap-vcpkg.bat
+        if: ${{ matrix.os == "windows-latest" }}
 
