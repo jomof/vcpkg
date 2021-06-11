@@ -15,6 +15,7 @@ jobs:
     strategy:
       matrix:
         ndk_version: [20.1.5948944]
+        package: [boost-array, json-cpp]
         os: [windows-latest,ubuntu-latest,macos-latest]
         #os: [windows-latest]
         include:
@@ -28,11 +29,6 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-      - uses: mymindstorm/setup-emsdk@v9
-
-      - name: Verify Emscripten
-        run: emcc -v
-        
       - uses: actions/checkout@v2
       
       - name: Bootstrap
@@ -40,8 +36,14 @@ jobs:
         
       - name: Install
         run: |
-          vcpkg install boost:arm-android  boost:arm64-android  boost:x64-android  boost:x86-android
-          vcpkg install jsoncpp:arm-android  jsoncpp:arm64-android  jsoncpp:x64-android  jsoncpp:x86-android
+          vcpkg install ${{ matrix.package }}:arm-android ${{ matrix.package }}:arm64-android ${{ matrix.package }}:x64-android ${{ matrix.package }}:x86-android
+        if: always()
+        
+      - name: Upload Packages
+        uses: actions/upload-artifact@v1
+        with:
+          name: packages_${{ matrix.os }}
+          path: ./packages
         if: always()
         
 #       - name: Export AAR
