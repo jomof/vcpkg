@@ -38,8 +38,8 @@ jobs:
       - name: Bootstrap
         run: ${{ matrix.bootstrap }}
         
-#       - name: Install
-#         run: vcpkg install jsoncpp:armv6-android  jsoncpp:arm64-android  jsoncpp:x64-android  jsoncpp:x86-android
+      - name: Install
+        run: vcpkg install jsoncpp:armv6-android  jsoncpp:arm64-android  jsoncpp:x64-android  jsoncpp:x86-android
         
       - name: Export AAR
         run: vcpkg export --triplet x86-android jsoncpp --prefab --prefab-maven --prefab-debug
