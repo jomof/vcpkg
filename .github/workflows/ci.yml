@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         ndk_version: [20.1.5948944]
-        package: [boost-array, jsoncpp]
+        package: [boost, jsoncpp]
         os: [windows-latest,ubuntu-latest,macos-latest]
         #os: [windows-latest]
         include:
