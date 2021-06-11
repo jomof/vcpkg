@@ -15,7 +15,8 @@ jobs:
     strategy:
       matrix:
         ndk_version: [20.1.5948944]
-        os: [windows-latest,ubuntu-latest,macos-latest]
+        # os: [windows-latest,ubuntu-latest,macos-latest]
+        os: [windows-latest]
         include:
           - os: windows-latest
             bootstrap: ./bootstrap-vcpkg.bat
