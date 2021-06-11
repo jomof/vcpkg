@@ -12,10 +12,15 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        boost_version: [1.70.0,1.73.0]
+        ndk_version: [20.1.5948944]
+        os: [windows-latest,ubuntu-latest,macos-latest]
+    runs-on: ${{ matrix.os }}
 
     steps:
       - uses: actions/checkout@v2
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Bootstrap
+        run: ./bootstrap-vcpkg.sh
 
