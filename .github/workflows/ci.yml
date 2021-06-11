@@ -16,16 +16,19 @@ jobs:
       matrix:
         ndk_version: [20.1.5948944]
         os: [windows-latest,ubuntu-latest,macos-latest]
+        include:
+          - os: windows-latest
+            bootstrap: ./bootstrap-vcpkg.bat
+          - os: ubuntu-latest
+            bootstrap: ./bootstrap-vcpkg.sh
+          - os: macos-latest
+            boostrap: ./bootstrap-vcpkg.sh
     runs-on: ${{ matrix.os }}
 
     steps:
       - uses: actions/checkout@v2
       
       - name: Bootstrap
-        run: ./bootstrap-vcpkg.sh
-        if: ${{ matrix.os != 'windows-latest' }}
-        
-      - name: Bootstrap (Windows)
-        run: ./bootstrap-vcpkg.bat
-        if: ${{ matrix.os == 'windows-latest' }}
+        run: ${{ matrix.bootstrap }}
+
 
