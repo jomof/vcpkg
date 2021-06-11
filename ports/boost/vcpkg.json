@@ -113,7 +113,10 @@
     "boost-multi-array",
     "boost-multi-index",
     "boost-multiprecision",
-    "boost-nowide",
+    {
+      "name": "boost-nowide",
+      "platform": "!android"
+    },
     "boost-numeric-conversion",
     "boost-numeric-conversion",
     "boost-odeint",
