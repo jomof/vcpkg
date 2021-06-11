@@ -23,9 +23,9 @@ jobs:
       
       - name: Bootstrap
         run: ./bootstrap-vcpkg.sh
-        if: ${{ matrix.os != "windows-latest" }}
+        if: ${{ matrix.os != 'windows-latest' }}
         
       - name: Bootstrap (Windows)
         run: ./bootstrap-vcpkg.bat
-        if: ${{ matrix.os == "windows-latest" }}
+        if: ${{ matrix.os == 'windows-latest' }}
 
