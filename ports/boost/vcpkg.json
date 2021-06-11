@@ -123,7 +123,7 @@
     "boost-parameter",
     {
       "name": "boost-parameter-python",
-      "platform": "!emscripten"
+      "platform": "!android & !emscripten"
     },
     "boost-pfr",
     "boost-phoenix",
