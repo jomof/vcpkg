@@ -36,7 +36,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: buildtrees
-          key: ${{ runner.os }}-buildtrees
+          key: ${{ runner.os }}-${{ matrix.package }}-buildtrees
       
       - name: Bootstrap
         run: ${{ matrix.bootstrap }}
