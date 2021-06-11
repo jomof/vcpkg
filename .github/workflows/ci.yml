@@ -46,9 +46,9 @@ jobs:
           path: ./packages
         if: always()
         
-      - name: Export AAR
-        run: vcpkg export --triplet x86-android ${{ matrix.package }} --prefab --prefab-maven --prefab-debug
-        if: always()
+#       - name: Export AAR
+#         run: vcpkg export --triplet x86-android ${{ matrix.package }} --prefab --prefab-maven --prefab-debug
+#         if: always()
 
 
 
