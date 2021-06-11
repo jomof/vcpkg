@@ -101,7 +101,7 @@
     "boost-lockfree",
     {
       "name": "boost-log",
-      "platform": "!uwp & !emscripten"
+      "platform": "!android & !uwp & !emscripten"
     },
     "boost-logic",
     "boost-math",
