@@ -39,12 +39,14 @@ jobs:
         run: ${{ matrix.bootstrap }}
         
       - name: Install
-        run: vcpkg install jsoncpp:arm-android  jsoncpp:arm64-android  jsoncpp:x64-android  jsoncpp:x86-android
+        run: |
+          vcpkg install boost:arm-android  boost:arm64-android  boost:x64-android  boost:x86-android
+          vcpkg install jsoncpp:arm-android  jsoncpp:arm64-android  jsoncpp:x64-android  jsoncpp:x86-android
         if: always()
         
-      - name: Export AAR
-        run: vcpkg export --triplet x86-android jsoncpp --prefab --prefab-maven --prefab-debug
-        if: always()
+#       - name: Export AAR
+#         run: vcpkg export --triplet x86-android jsoncpp --prefab --prefab-maven --prefab-debug
+#         if: always()
 
 
 
