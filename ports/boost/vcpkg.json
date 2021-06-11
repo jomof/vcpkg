@@ -96,7 +96,7 @@
     "boost-local-function",
     {
       "name": "boost-locale",
-      "platform": "!uwp"
+      "platform": "!android & !uwp"
     },
     "boost-lockfree",
     {
