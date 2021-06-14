@@ -1,0 +1,82 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        ndk_version: [20.1.5948944]
+        #package: [boost, jsoncpp]
+        # Don't work: freeglut, llvm
+        # Pending: jsoncpp, libyaml, boost, freetype, harfbuzz, lua, mecab, mathc
+        package: [lua]
+        os: [windows-latest,ubuntu-latest,macos-latest]
+        #os: [windows-latest]
+        include:
+          - os: windows-latest
+            bootstrap: ./bootstrap-vcpkg.bat
+            vcpkg: ./vcpkg
+          - os: ubuntu-latest
+            bootstrap: ./bootstrap-vcpkg.sh
+          - os: macos-latest
+            boostrap: ./bootstrap-vcpkg.sh
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Cache Build Trees
+        id: cache-build-trees
+        uses: actions/cache@v2
+        with:
+          path: |
+            buildtrees
+            downloads
+            packages
+            installed
+          key: ${{ runner.os }}-${{ matrix.package }}-buildtrees
+          
+      - name: Clone vcpkg-to-prefab
+        run: git clone https://github.com/jomof/vcpkg-to-prefab
+      
+      - name: Bootstrap
+        run: ${{ matrix.bootstrap }}
+        
+      - name: Install
+        run: |
+          vcpkg install ${{ matrix.package }}:arm-android ${{ matrix.package }}:arm64-android ${{ matrix.package }}:x64-android ${{ matrix.package }}:x86-android
+        if: always()
+        
+      - name: Package AARs
+        run: |
+          cd vcpkg-to-prefab
+          ./gradlew run --args='../packages com.github.jomof.prefab.proof.of.concept 16 21 20 c++_static'
+        
+      - name: Upload Packages
+        uses: actions/upload-artifact@v1
+        with:
+          name: packages_${{ matrix.os }}
+          path: ./packages
+        if: always()
+        
+      - name: Upload AARs
+        uses: actions/upload-artifact@v1
+        with:
+          name: ${{ matrix.package }}-aars-built-on-${{ runner.os }}
+          path: ./aar
+        if: always()
+        
+#       - name: Export AAR
+#         run: vcpkg export --triplet x86-android ${{ matrix.package }} --prefab --prefab-maven --prefab-debug
+#         if: always()
+
+
