@@ -16,8 +16,8 @@ jobs:
       matrix:
         ndk_version: [20.1.5948944]
         #package: [boost, jsoncpp]
-        # Don't work: freeglut
-        package: [jsoncpp, libyaml, boost, freetype, harfbuzz, lua, llvm, mecab, mathc]
+        # Don't work: freeglut, llvm
+        package: [jsoncpp, libyaml, boost, freetype, harfbuzz, lua, mecab, mathc]
         os: [windows-latest,ubuntu-latest,macos-latest]
         #os: [windows-latest]
         include:
