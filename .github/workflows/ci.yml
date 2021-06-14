@@ -70,7 +70,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: aars_${{ matrix.os }}
-          path: ./aars
+          path: ./aar
         if: always()
         
 #       - name: Export AAR
