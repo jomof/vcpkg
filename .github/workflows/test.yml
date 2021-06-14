@@ -18,7 +18,7 @@ jobs:
         #package: [boost, jsoncpp]
         # Don't work: freeglut, llvm, harfbuzz,libiconv
         # Pending: mecab, mathc
-        package: [zstd]
+        package: [glog]
         os: [windows-latest,ubuntu-latest,macos-latest]
         #os: [windows-latest]
         include:
