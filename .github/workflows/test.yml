@@ -18,7 +18,7 @@ jobs:
         #package: [boost, jsoncpp]
         # Don't work: freeglut, llvm
         # Pending: harfbuzz, lua, mecab, mathc
-        package: [freetyp]
+        package: [freetype]
         os: [windows-latest,ubuntu-latest,macos-latest]
         #os: [windows-latest]
         include:
