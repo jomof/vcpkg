@@ -41,7 +41,7 @@
     "boost-core",
     {
       "name": "boost-coroutine",
-      "platform": "!arm & !uwp & !emscripten"
+      "platform": "!android & !arm & !uwp & !emscripten"
     },
     {
       "name": "boost-coroutine2",
@@ -56,7 +56,7 @@
     "boost-exception",
     {
       "name": "boost-fiber",
-      "platform": "!osx & !uwp & !arm & !emscripten"
+      "platform": "!android & !osx & !uwp & !arm & !emscripten"
     },
     {
       "name": "boost-filesystem",
