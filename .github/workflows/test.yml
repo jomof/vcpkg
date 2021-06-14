@@ -18,7 +18,7 @@ jobs:
         #package: [boost, jsoncpp]
         # Don't work: freeglut, llvm, harfbuzz
         # Pending: mecab, mathc
-        package: [flatbuffers]
+        package: [libiconv]
         os: [windows-latest,ubuntu-latest,macos-latest]
         #os: [windows-latest]
         include:
