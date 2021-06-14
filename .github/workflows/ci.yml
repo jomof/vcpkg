@@ -17,7 +17,7 @@ jobs:
         ndk_version: [20.1.5948944]
         #package: [boost, jsoncpp]
         # Don't work: freeglut, llvm
-        package: [lua, jsoncpp, libyaml, boost]
+        package: [libyaml, lua, jsoncpp, libyaml, boost]
         os: [windows-latest,ubuntu-latest,macos-latest]
         #os: [windows-latest]
         include:
