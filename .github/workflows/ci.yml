@@ -17,7 +17,7 @@ jobs:
         ndk_version: [20.1.5948944]
         #package: [boost, jsoncpp]
         # Don't work: freeglut, llvm
-        package: [re2, flatbuffers, brotli, libpng, bzip2, zlib, freetype, libyaml, lua, jsoncpp, libyaml, boost]
+        package: [lz4, xxhash, re2, flatbuffers, brotli, libpng, bzip2, zlib, freetype, libyaml, lua, jsoncpp, libyaml, boost]
         #os: [windows-latest,ubuntu-latest,macos-latest]
         os: [ubuntu-latest]
         include:
