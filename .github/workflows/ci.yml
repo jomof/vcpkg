@@ -16,7 +16,7 @@ jobs:
       matrix:
         ndk_version: [20.1.5948944]
         #package: [boost, jsoncpp]
-        package: [jsoncpp]
+        package: [jsoncpp, libyaml, freeglut, boost]
         os: [windows-latest,ubuntu-latest,macos-latest]
         #os: [windows-latest]
         include:
@@ -69,7 +69,7 @@ jobs:
       - name: Upload AARs
         uses: actions/upload-artifact@v1
         with:
-          name: aars_${{ matrix.os }}
+          name: ${{ matrix.package }}-aars-built-on-${{ runner.os }}
           path: ./aar
         if: always()
         
