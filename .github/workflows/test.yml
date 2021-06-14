@@ -16,9 +16,9 @@ jobs:
       matrix:
         ndk_version: [20.1.5948944]
         #package: [boost, jsoncpp]
-        # Don't work: freeglut, llvm, harfbuzz
+        # Don't work: freeglut, llvm, harfbuzz,libiconv
         # Pending: mecab, mathc
-        package: [libiconv]
+        package: [re2]
         os: [windows-latest,ubuntu-latest,macos-latest]
         #os: [windows-latest]
         include:
