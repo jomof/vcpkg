@@ -15,7 +15,8 @@ jobs:
     strategy:
       matrix:
         ndk_version: [20.1.5948944]
-        package: [boost, jsoncpp]
+        #package: [boost, jsoncpp]
+        package: [jsoncpp]
         os: [windows-latest,ubuntu-latest,macos-latest]
         #os: [windows-latest]
         include:
@@ -41,6 +42,9 @@ jobs:
             packages
             installed
           key: ${{ runner.os }}-${{ matrix.package }}-buildtrees
+          
+      - name: Clone vcpkg-to-prefab
+        run: git clone https://github.com/jomof/vcpkg-to-prefab
       
       - name: Bootstrap
         run: ${{ matrix.bootstrap }}
@@ -54,6 +58,13 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: packages_${{ matrix.os }}
+          path: ./packages
+        if: always()
+        
+      - name: Upload AARs
+        uses: actions/upload-artifact@v1
+        with:
+          name: aars_${{ matrix.os }}
           path: ./packages
         if: always()
         
