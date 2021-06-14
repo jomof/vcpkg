@@ -54,6 +54,11 @@ jobs:
           vcpkg install ${{ matrix.package }}:arm-android ${{ matrix.package }}:arm64-android ${{ matrix.package }}:x64-android ${{ matrix.package }}:x86-android
         if: always()
         
+      - name: Package AARs
+        run: |
+          cd vcpkg-to-prefab
+          ./gradlew run "../packages com.github.jomof.prefab.proof.of.concept 16 21 20 c++_static"
+        
       - name: Upload Packages
         uses: actions/upload-artifact@v1
         with:
@@ -65,7 +70,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: aars_${{ matrix.os }}
-          path: ./packages
+          path: ./aars
         if: always()
         
 #       - name: Export AAR
