@@ -21,13 +21,12 @@ jobs:
         #os: [windows-latest,ubuntu-latest,macos-latest]
         os: [ubuntu-latest]
         include:
-          - os: windows-latest
-            bootstrap: ./bootstrap-vcpkg.bat
-            vcpkg: ./vcpkg
+#           - os: windows-latest
+#             bootstrap: ./bootstrap-vcpkg.bat
           - os: ubuntu-latest
             bootstrap: ./bootstrap-vcpkg.sh
-          - os: macos-latest
-            boostrap: ./bootstrap-vcpkg.sh
+#           - os: macos-latest
+#             boostrap: ./bootstrap-vcpkg.sh
     runs-on: ${{ matrix.os }}
 
     steps:
