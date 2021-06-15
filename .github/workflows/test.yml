@@ -68,7 +68,7 @@ jobs:
       - name: Test build with AARs
         run: |
           cd test-aars
-          ./gradlew assemble --info
+          ./gradlew assemble --stacktrace
         
       - name: Upload Packages
         uses: actions/upload-artifact@v1
