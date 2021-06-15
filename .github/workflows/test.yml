@@ -60,6 +60,11 @@ jobs:
         run: |
           cd vcpkg-to-prefab
           ./gradlew run --args='../packages com.github.jomof.prefab.proof.of.concept 16 21 20 c++_static'
+          
+      - name: Test build with AARs
+        run: |
+          cd test-aars
+          ./gradlew assemble
         
       - name: Upload Packages
         uses: actions/upload-artifact@v1
