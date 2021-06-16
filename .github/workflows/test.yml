@@ -18,7 +18,7 @@ jobs:
         #package: [boost, jsoncpp]
         # Don't work: freeglut, llvm, harfbuzz, libiconv, boringssl
         # Pending: mecab, mathc
-        package: [sepol]
+        package: [tinyxml]
         os: [windows-latest,ubuntu-latest,macos-latest]
         #os: [windows-latest]
         include:
