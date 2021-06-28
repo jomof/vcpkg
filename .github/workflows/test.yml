@@ -16,7 +16,7 @@ jobs:
       matrix:
         ndk_version: [20.1.5948944]
         # Don't work: freeglut, llvm, harfbuzz, libiconv, boringssl
-        package: [freetype]
+        package: [freetype-gl]
         os: [windows-latest,ubuntu-latest,macos-latest]
         #os: [windows-latest]
         include:
