@@ -1,6 +1,4 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
+name: Miscellaneous
 
 on:
   push:
@@ -17,7 +15,7 @@ jobs:
         ndk_version: [20.1.5948944]
         #package: [boost, jsoncpp]
         # Don't work: freeglut, llvm
-        package: [SDL2,cpptoml,imgui,mecab,mathc,box2d,tinyxml,glog,zstd,lz4,xxhash,re2,flatbuffers,brotli,libpng,bzip2,zlib,freetype,libyaml,lua,jsoncpp,libyaml,boost]
+        package: [SDL2,cpptoml,imgui,mecab,mathc,box2d,tinyxml,glog,zstd,lz4,xxhash,re2,flatbuffers,brotli,libpng,bzip2,zlib,freetype,libyaml,lua,jsoncpp,libyaml]
         #os: [windows-latest,ubuntu-latest,macos-latest]
         os: [ubuntu-latest]
         include:
